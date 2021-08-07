@@ -1,0 +1,4 @@
+name: Upgrade
+version: ${project.version}
+main: com.overseer.upgrade.Main
+api-version: 1.17
