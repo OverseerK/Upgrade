@@ -25,10 +25,10 @@ public class Combat implements Listener {
         if (Damager instanceof Player) {
             Player p = (Player) Damager;
             int Modifier = 0;
-            int CritChance = 20;
+            int CritChance = 10;
             int CritDamage = 0;
             double Damage = e.getDamage();
-            double FinalDamage = 0;
+            double FinalDamage;
             @Nullable ArrayList<String> Lore = (ArrayList<String>) p.getInventory().getItemInMainHand().getLore();
             if (Lore != null) {
                 int Level = 0;
@@ -60,7 +60,6 @@ public class Combat implements Listener {
                 }
                 e.setDamage(FinalDamage);
             }
-            p.sendMessage(String.valueOf(FinalDamage));
         }
     }
 
