@@ -109,7 +109,7 @@ public class Upgrade implements Listener {
 
     public String createModifier() {
         String Modifier;
-        int ModifierSelector = Rand.nextInt(4);
+        int ModifierSelector = Rand.nextInt(3);
         int MinLevel;
         int MaxLevel;
         switch (ModifierSelector) {
@@ -127,11 +127,6 @@ public class Upgrade implements Listener {
                 Modifier = "치명타 피해량";
                 MinLevel = 4;
                 MaxLevel = 20;
-                break;
-            case 3:
-                Modifier = "이동 속도";
-                MinLevel = 2;
-                MaxLevel = 10;
                 break;
             default:
                 Modifier = "null";

@@ -8,8 +8,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -59,27 +57,6 @@ public class Combat implements Listener {
                     FinalDamage = Damage;
                 }
                 e.setDamage(FinalDamage);
-            }
-        }
-    }
-
-    @EventHandler
-    public void speedModifier(PlayerItemHeldEvent e) {
-        Player p = e.getPlayer();
-        ItemStack i = p.getInventory().getItem(e.getNewSlot());
-        int Modifier = 0;
-        if (i != null) {
-            @Nullable ArrayList<String> Lore = (ArrayList<String>) i.getLore();
-            if (Lore != null) {
-                for (String Line : Lore) {
-                    if (Line.contains("이동 속도")) {
-                        Modifier = Modifier + Integer.parseInt(ChatColor.stripColor(Line).replaceAll("\\D+",""));
-                    }
-                }
-                float WalkSpeed = (float) (0.2 * (Modifier + 100) / 100);
-                p.setWalkSpeed(WalkSpeed);
-            } else {
-                p.setWalkSpeed(0.2f);
             }
         }
     }
